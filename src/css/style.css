@@ -1,11 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+    --color-neutral-0: #ffffff;
+    --color-neutral-1: #eee4db;
+    --color-neutral-2: #d4c3b6;
+    --color-neutral-3: #b8a99e;
+    --color-neutral-4: #9e8f85;
+    --color-neutral-5: #7e6e65;
+    --color-neutral-6: #5e4e45;
+    --color-neutral-7: #3e2e25;
+    --color-neutral-8: #1e0e05;
+    --color-neutral-9: #000000;
+
+    --color-primary-1: #34815d;
+    --color-primary-2: #2c6e4f;
+    --color-primary-3: #245c42;
+
+    --color-secondary-1: #f5c518;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .btn {
@@ -117,26 +139,6 @@ a.btn {
 
 }
 
-:root {
-    --color-neutral-0: #ffffff;
-    --color-neutral-1: #eee4db;
-    --color-neutral-2: #d4c3b6;
-    --color-neutral-3: #b8a99e;
-    --color-neutral-4: #9e8f85;
-    --color-neutral-5: #7e6e65;
-    --color-neutral-6: #5e4e45;
-    --color-neutral-7: #3e2e25;
-    --color-neutral-8: #1e0e05;
-    --color-neutral-9: #000000;
-
-    --color-primary-1: #34815d;
-    --color-primary-2: #2c6e4f;
-    --color-primary-3: #245c42;
-
-    --color-secondary-1: #f5c518;
-
-}
-
 #trending {
     padding: 32px 4%;
     display: flex;
@@ -156,7 +158,7 @@ a.btn {
             }
 
             img {
-                width: clamp(300px, 5vw, 600px);
+                width: clamp(200px, 40vw, 350px);
             }
 
             .trending-rate {
@@ -334,56 +336,55 @@ header {
     padding: 12px 4%;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 100;
+}
 
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+header .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .logo {
-           width: 180px;
-        }
+header .navbar .logo {
+    width: 180px;
+}
 
-        ul {
-            display: none;
-            list-style: none;
-            flex-direction: column;
-            gap: 0.5rem;
-            width: 100%;
-            position: absolute;
-            top: 80px;
-            background-color: var(--color-neutral-1);
-            left: 0;
-            padding: 1rem;
+header .navbar ul {
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    background-color: var(--color-neutral-1);
+    left: 0;
+    padding: 1rem;
+}
 
+header .navbar ul.show {
+    display: flex;
+}
 
-            &.show {
-                display: flex;
-            }
+header .navbar ul li {
+    text-align: center;
+}
 
-            li {
-                text-align: center;
+header .navbar ul li a {
+    color: var(--color-neutral-8);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
 
-                a {
-                    color: var(--color-neutral-8);
-                    text-decoration: none;
-                    font-size: 1rem;
-                    font-weight: 500;
-                    transition: all 0.3s ease;
+header .navbar ul li a:hover {
+    color: var(--color-primary-1);
+    border-bottom: 1px solid var(--color-primary-1);
+}
 
-                    &:hover {
-                        color: var(--color-primary-1);
-                        border-bottom: 1 px solid var(--color-primary-1);
-                    }
-                }
-             }   
-        }
-
-        .btn-default {
-            display: none;
-        }
-    }
+header .navbar .btn-default {
+    display: none;
 }
 
 footer {
@@ -475,6 +476,23 @@ footer {
 }
 
 @media (min-width: 768px) {
+    header .navbar .btn-mobile {
+        display: none;
+    }
+
+    header .navbar ul {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        padding: 0;
+        gap: 1.5rem;
+    }
+
+    header .navbar .btn-default {
+        display: inline-block;
+    }
+
     #container {
         background-image: url("../img/background-desktop.png");
         background-size: cover;
