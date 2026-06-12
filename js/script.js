@@ -6,7 +6,14 @@ mobileBtn.addEventListener('click', () => {
     navLinks.classList.toggle('show');
     icon.classList.toggle('fa-bars');
     icon.classList.toggle('fa-times');
+});
 
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
+    });
 });
 
 
